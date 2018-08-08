@@ -7,12 +7,9 @@ export default class App extends Component {
         super(props);
 
         this.state = {
-            todo: {
-                value: "",
-                isChecked: true,
-            },
+            input: "",
             list_todo: [],
-            isClear: false,
+            isClear: false, // ?????
         }
     }
     render() {
@@ -23,8 +20,8 @@ export default class App extends Component {
                 </div>
                 <div className="input-bar">
                     <input
-                        value={this.state.todo.value}
-                        onChange={(event) => {this.setState({todo: {value: event.target.value, isChecked: false}})}}
+                        value={this.state.input}
+                        onChange={(event) => {this.setState({input: event.target.value})}}
                         onKeyDown={this.onEnterKeyPress} />
                 </div>
                 <div className="list-todo">
@@ -51,25 +48,31 @@ export default class App extends Component {
         })
     }
     check = (event, index) => {
-        var arr = this.state.list_todo;
-        if (event.target.checked) {
-            arr[index].isChecked = true;
-            this.setState({
-                list_todo: arr,
-            })
-        }
-        else {
-            arr[index].isChecked = false;
-            this.setState({
-                list_todo: arr,
-            })
-        }
+        var arr = [...this.state.list_todo];
+        arr[index].isChecked = event.target.checked;
+        this.setState({list_todo: arr})
+        // if (event.target.checked) {
+        //     arr[index].isChecked = true;
+        //     this.setState({
+        //         list_todo: arr,
+        //     })
+        // }
+        // else {
+        //     arr[index].isChecked = false;
+        //     this.setState({
+        //         list_todo: arr,
+        //     })
+        // }
     }
     onEnterKeyPress = (event) => {
-        if (event.keyCode === 13 && this.state.todo.value !== "") {
+        if (event.keyCode === 13 && this.state.input !== "") {
+            const newTodo = {
+                value: this.state.input,
+                isChecked: false
+            }
             this.setState({
-                list_todo: [...this.state.list_todo, this.state.todo],
-                todo: {value: "", isChecked: false}
+                list_todo: [...this.state.list_todo, newTodo],
+                input: ""
             })
         }
     }
