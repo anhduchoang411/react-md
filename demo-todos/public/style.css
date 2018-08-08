@@ -1,0 +1,67 @@
+.logo {
+    width: 100%;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+.logo img {
+    width: 100px;
+    height: 100px;
+    margin: auto;
+}
+.input-bar {
+    width: 100%;
+    text-align: center;
+}
+.input-bar input {
+    width: 70%;
+    border: solid 1px black;
+    border-radius: 5px;
+    padding: 5px;
+}
+.list-todo {
+    widows: 100%;
+}
+.list-todo li {
+    width: 70%;
+    margin: auto;
+    list-style: none;
+    padding: 5px;
+    border: solid 1px #cbcbcb;
+    border-radius: 5px;
+    text-align: center;
+}
+.list-todo li input {
+    float: left;
+}
+.list-todo li img {
+    width: 20px;
+    height: 20px;
+    float: right;
+    cursor: pointer;
+}
+.list-todo .menu {
+    display: flex;
+    justify-content: space-around;
+}
+.list-todo .menu .item-menu {
+    text-align: center;
+    padding: auto;
+    cursor: pointer;
+}
+.list-todo .menu .item-menu:hover {
+    color: #cbcbcb;
+}
+.list-todo .menu .current {
+    color: #cbcbcb;
+}
+.list-todo .checked {
+    text-decoration: line-through;
+    color: #cbcbcb;
+}
+.list-todo .unchecked {
+    text-decoration: none;
+    color: black;
+}
+.list-todo .hidden {
+    display: none;
+}
